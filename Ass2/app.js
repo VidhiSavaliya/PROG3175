@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Simple Web API with SQLite!');
 });
 
-// POST /greet: Get a greeting message based on timeOfDay, language, and tone
+// GET/greet: Get a greeting message based on timeOfDay, language, and tone
 app.get('/greet', (req, res) => {
-    const { timeOfDay, language, tone } = req.body;
+    const { timeOfDay, language, tone } = req.query;
 
     // Validate request body
     if (!timeOfDay || !language || !tone) {
