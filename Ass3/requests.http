@@ -1,0 +1,15 @@
+### Greet API Request
+GET  http://localhost:3001/greet
+Content-Type: application/json
+
+{
+    "timeOfDay": "Morning",
+    "language": "French",
+    "tone": "Formal"
+}
+
+### Get Times of Day
+GET http://localhost:3001/timesOfDay
+
+### Get Supported Languages
+GET http://localhost:3001/languages
