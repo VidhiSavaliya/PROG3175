@@ -14,7 +14,7 @@ const PORT = 3001;
 
 // Root route for testing
 app.get('/', (req, res) => {
-    res.send('Welcome to the Simple Web API with SQLite!');
+    res.send('Hello, This is a serverless deployment!');
 });
 
 // GET/greet: Get a greeting message based on timeOfDay, language, and tone
