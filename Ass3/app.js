@@ -2,10 +2,14 @@ require("dotenv").config();
 
 const express = require('express');
 const app = express();
+const axios = require('axios');
 
 // Database setup
+const path = require('path');
+const dbPath = path.resolve(__dirname, 'greetings.db');
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./greetings.db', sqlite3.OPEN_READWRITE, (err) => {
+
+const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         console.error('Database connection failed:', err.message);
     } else {
@@ -17,6 +21,11 @@ const db = new sqlite3.Database('./greetings.db', sqlite3.OPEN_READWRITE, (err) 
 app.use(express.json());
 
 const PORT = 3001;
+
+// Create an axios instance with a timeout
+const axiosInstance = axios.create({
+    timeout: 30000 // 30 seconds timeout
+});
 
 // Root route for testing
 app.get('/', (req, res) => {
@@ -77,6 +86,9 @@ app.get('/languages', (req, res) => {
         res.json(languages);
     });
 });
+
+const cors = require('cors');
+app.use(cors());
 
 // Error handling for unknown routes
 app.use((req, res) => {
