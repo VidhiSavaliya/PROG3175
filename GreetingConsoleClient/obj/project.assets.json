@@ -216,11 +216,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Documents\\GitHub\\PROG3175\\GreetingConsoleClient\\GreetingConsoleClient.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\PROG3175\\Ass3\\GreetingConsoleClient\\GreetingConsoleClient.csproj",
       "projectName": "GreetingConsoleClient",
-      "projectPath": "C:\\Users\\Admin\\Documents\\GitHub\\PROG3175\\GreetingConsoleClient\\GreetingConsoleClient.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\PROG3175\\Ass3\\GreetingConsoleClient\\GreetingConsoleClient.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Documents\\GitHub\\PROG3175\\GreetingConsoleClient\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\PROG3175\\Ass3\\GreetingConsoleClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

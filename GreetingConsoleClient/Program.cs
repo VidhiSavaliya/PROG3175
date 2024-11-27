@@ -20,12 +20,15 @@ namespace GreetingConsoleClient
 
     class Program
     {
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly HttpClient client = new HttpClient
+        {
+            Timeout = TimeSpan.FromSeconds(30)
+        };
 
         static async Task Main(string[] args)
         {
             // Set the base address to the Node.js API
-            client.BaseAddress = new Uri("http://localhost:3001/");
+            client.BaseAddress = new Uri("https://assignment3-vidhis-projects-32d5e075.vercel.app/");
 
             Console.WriteLine("Fetching available times of day and languages...");
 
@@ -86,6 +89,12 @@ namespace GreetingConsoleClient
             try
             {
                 var response = await client.GetAsync("/timesOfDay");
+
+                if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
+                {
+                       Console.WriteLine("Gateway Timeout. The server took too long to respond.");
+                      return null;
+                }
                 response.EnsureSuccessStatusCode();
 
                 var jsonResponse = await response.Content.ReadAsStringAsync();
@@ -103,6 +112,13 @@ namespace GreetingConsoleClient
             try
             {
                 var response = await client.GetAsync("/languages");
+                
+                if (response.StatusCode == System.Net.HttpStatusCode.GatewayTimeout)
+                {
+                       Console.WriteLine("Gateway Timeout. The server took too long to respond.");
+                      return null;
+                }
+
                 response.EnsureSuccessStatusCode();
 
                 var jsonResponse = await response.Content.ReadAsStringAsync();
